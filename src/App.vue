@@ -5,14 +5,11 @@
     </div>
     <div id="right" :style="{ 'margin-left': sidebarWidth }">
       <div id="banner">
-        <button id="btnMenu" @click="toggleSidebar">
-          <img src="@/assets/Image/menu.png" />
-        </button>
+       
       </div>
       <div id="body">
         <router-view />
       </div>
-      <!-- <div id="footer"></div> -->
     </div>
   </div>
 </template>
@@ -44,6 +41,7 @@ export default {
   --dark-alt: #334155;
   --light: #f1f5f9;
   --border: #bdbdbd;
+  --main: #070994;
 }
 
 body {
@@ -70,19 +68,12 @@ body {
 }
 
 #main #right #banner {
+  display: flex;
+  justify-content: space-between;
   height: 50px;
   background: var(--light);
   border-bottom: 1px solid var(--border);
   margin: 0;
-}
-
-#main #right #banner #btnMenu {
-  height: 32px;
-  border: 0px;
-  margin-left: 15px;
-  margin-top: 7px;
-  background: var(--light);
-  float: left;
 }
 
 #main #right #body {

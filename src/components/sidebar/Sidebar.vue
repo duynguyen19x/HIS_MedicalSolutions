@@ -15,25 +15,21 @@ export default {
 
 <template>
   <div class="sidebar" :style="{ width: sidebarWidth }">
-    <h1>
-      <span v-if="collapsed">
-        <div>M</div>
-        <div>S</div>
-      </span>
-      <span v-else>
-        <div>Medical</div>
-        <div>Solutions</div>
-      </span>
-    </h1>
-    <!-- 
-    <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-    <SidebarLink to="/dashboard" icon="fas fa-columns">Dashboard</SidebarLink>
-    <SidebarLink to="/analytics" icon="fas fa-chart-bar">Analytics</SidebarLink>
-    <SidebarLink to="/friends" icon="fas fa-users">Friends</SidebarLink>
-    <SidebarLink to="/image" icon="fas fa-image">Images</SidebarLink> -->
+    <div class="sidebar-menu">
+      <button id="btnMenu" @click="toggleSidebar">
+        <img src="@/assets/Image/menu.png" />
+      </button>
 
-    <SidebarLink to="/users/List" icon="users">User</SidebarLink>
-    <SidebarLink to="/about" icon="users">About</SidebarLink>
+      <div class="search" v-if="!collapsed">
+        <input class="text" type="text" />
+        <img src="@/assets/Image/loupe.png" />
+      </div>
+    </div>
+
+    <div class="sidebarLink">
+      <SidebarLink to="/users/List" icon="users">User</SidebarLink>
+      <SidebarLink to="/about" icon="users">About</SidebarLink>
+    </div>
 
     <span
       class="collapse-icon"
@@ -67,9 +63,45 @@ export default {
   flex-direction: column;
 }
 
-.sidebar h1 {
-  height: 2.5em;
-  /* margin: 0; */
+.sidebar .sidebar-menu {
+  display: flex;
+  justify-content: space-around;
+  height: 32px;
+  padding: 0px;
+  margin: 7px 0px;
+  align-items: center;
+}
+
+.sidebar .sidebar-menu #btnMenu {
+  border: 0px;
+  color: white;
+  background-color: var(--dark);
+  margin: 0px;
+  float: left;
+}
+
+img {
+  width: 25px;
+  height: 25px;
+}
+
+.sidebar .sidebar-menu .search {
+  display: flex;
+  margin: 0px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text {
+  margin: aoto 3px auto 3px;
+  padding: 3px;
+  height: 20px;
+  width: 150px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.sidebar .sidebarLink {
+  margin: 15px 0px;
 }
 
 .collapse-icon {
