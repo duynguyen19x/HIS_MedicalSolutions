@@ -21,8 +21,8 @@ export default {
       </button>
 
       <div class="search" v-if="!collapsed">
-        <input class="text" type="text" />
-        <img src="@/assets/Image/loupe.png" />
+        <input class="searchText" type="text" placeholder="Tìm kiếm nhanh" />
+        <img class="loupe" src="@/assets/Image/loupe.png" />
       </div>
     </div>
 
@@ -81,23 +81,36 @@ export default {
 }
 
 img {
-  width: 25px;
+  width: 26px;
   height: 25px;
 }
+
+/* .sidebar .sidebar-menu .search .loupe {
+  
+} */
 
 .sidebar .sidebar-menu .search {
   display: flex;
   margin: 0px;
   justify-content: space-between;
   align-items: center;
+  background: white;
+  padding: 0px;
+  border: 2px solid var(--border);
 }
 
-.text {
-  margin: aoto 3px auto 3px;
+.searchText {
+  margin: auto 3px auto 3px;
   padding: 3px;
   height: 20px;
-  width: 150px;
+  width: 145px;
   font-family: 'Times New Roman', Times, serif;
+  border: 0px;
+  font-size: 14px;
+}
+
+.searchText:focus {
+  outline: none;
 }
 
 .sidebar .sidebarLink {
