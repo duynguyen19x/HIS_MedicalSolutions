@@ -1,11 +1,11 @@
 <template>
   <div id="main">
-    <div id="left" :style="{ width: sidebarWidth }">
+    <div id="left" >
       <Sidebar />
     </div>
-    <div id="right" :style="{ 'margin-left': sidebarWidth }">
+    <div id="right" :style="{ 'margin-left': bodyMarginLeft }">
       <div id="banner">
-       
+        <input class="text" type="text"  />
       </div>
       <div id="body">
         <router-view />
@@ -16,18 +16,18 @@
 
 <script>
 import Sidebar from '@/components/sidebar/Sidebar'
-import { toggleSidebar, sidebarWidth } from '@/components/sidebar/state'
+import { toggleSidebar, sidebarWidth, bodyMarginLeft } from '@/components/sidebar/state'
 export default {
   components: {
     Sidebar
   },
 
   setup() {
-    return { toggleSidebar, sidebarWidth }
+    return { toggleSidebar, sidebarWidth, bodyMarginLeft }
   },
 
   run() {
-    return { sidebarWidth }
+    return { sidebarWidth, bodyMarginLeft }
   }
 }
 </script>
@@ -56,6 +56,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.text {
+  height: 24px;
+  width: auto;
+  font-size: 16px;
+  /* padding: 0px 3px; */
+  /* margin: 3px; */
 }
 
 #main #left {
@@ -65,15 +75,17 @@ body {
 
 #main #right {
   margin: 0px;
+  margin-left: calc(100+ 50);
 }
 
 #main #right #banner {
   display: flex;
   justify-content: space-between;
-  height: 50px;
+  height: 40px;
   background: var(--light);
   border-bottom: 1px solid var(--border);
   margin: 0;
+  align-items: center;
 }
 
 #main #right #body {
@@ -90,5 +102,4 @@ body {
   text-align: center;
   width: 50px;
 }
-
 </style>

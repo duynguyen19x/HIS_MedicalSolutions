@@ -68,7 +68,7 @@ export default {
   justify-content: space-around;
   height: 32px;
   padding: 0px;
-  margin: 7px 0px;
+  margin: 6px 0px;
   align-items: center;
 }
 
@@ -102,11 +102,9 @@ img {
 .searchText {
   margin: auto 3px auto 3px;
   padding: 3px;
-  height: 20px;
+  height: 24px;
   width: 145px;
-  font-family: 'Times New Roman', Times, serif;
   border: 0px;
-  font-size: 14px;
 }
 
 .searchText:focus {
