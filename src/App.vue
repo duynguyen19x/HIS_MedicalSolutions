@@ -1,14 +1,16 @@
 <template>
   <div id="main">
-    <div id="left" >
+    <div id="left">
       <Sidebar />
     </div>
     <div id="right" :style="{ 'margin-left': bodyMarginLeft }">
       <div id="banner">
-        <input class="text" type="text"  />
+        <!-- <input class="text" type="text" /> -->
       </div>
       <div id="body">
-        <router-view />
+        <div id="body-detail">
+          <router-view />
+        </div>
       </div>
     </div>
   </div>
@@ -16,7 +18,11 @@
 
 <script>
 import Sidebar from '@/components/sidebar/Sidebar'
-import { toggleSidebar, sidebarWidth, bodyMarginLeft } from '@/components/sidebar/state'
+import {
+  toggleSidebar,
+  sidebarWidth,
+  bodyMarginLeft
+} from '@/components/sidebar/state'
 export default {
   components: {
     Sidebar
@@ -44,10 +50,18 @@ export default {
   --main: #070994;
 }
 
-body {
+#body {
   margin: 0px;
   display: block;
   background: var(--light);
+  /* padding: 10px; */
+}
+
+#body #body-detail{
+  margin: 10px;
+  display: block;
+  background: var(--light);
+  border: 1px solid var(--border);
 }
 
 #app {

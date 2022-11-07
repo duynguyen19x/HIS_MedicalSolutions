@@ -9,7 +9,7 @@ export const sidebarWidth = computed(() =>
   `${collapsed.value ? SIDEBAR_WIDTH_COLLAPSED : SIDEBAR_WIDTH}px`
 );
 export const bodyMarginLeft = computed(() =>
-  `${(collapsed.value ? SIDEBAR_WIDTH_COLLAPSED : SIDEBAR_WIDTH) + 15}px`
+  `${(collapsed.value ? SIDEBAR_WIDTH_COLLAPSED : SIDEBAR_WIDTH)}px`
 );
 
 console.log(bodyMarginLeft);
