@@ -1,14 +1,12 @@
 <template>
-  <div id="main">
-    <div id="left">
+  <div class="wrapper">
+    <div class="content-left">
       <Sidebar />
     </div>
-    <div id="right" :style="{ 'margin-left': bodyMarginLeft }">
-      <div id="banner">
-        <!-- <input class="text" type="text" /> -->
-      </div>
-      <div id="body">
-        <div id="body-detail">
+    <div class="content-right" :style="{ 'margin-left': sidebarWidth }">
+      <div class="content-right-detail">
+        <div class="top"></div>
+        <div class="main">
           <router-view />
         </div>
       </div>
@@ -18,22 +16,18 @@
 
 <script>
 import Sidebar from '@/components/sidebar/Sidebar'
-import {
-  toggleSidebar,
-  sidebarWidth,
-  bodyMarginLeft
-} from '@/components/sidebar/state'
+import { toggleSidebar, sidebarWidth } from '@/components/sidebar/state'
 export default {
   components: {
     Sidebar
   },
 
   setup() {
-    return { toggleSidebar, sidebarWidth, bodyMarginLeft }
+    return { toggleSidebar, sidebarWidth }
   },
 
   run() {
-    return { sidebarWidth, bodyMarginLeft }
+    return { sidebarWidth }
   }
 }
 </script>
@@ -50,20 +44,6 @@ export default {
   --main: #070994;
 }
 
-#body {
-  margin: 0px;
-  display: block;
-  background: var(--light);
-  /* padding: 10px; */
-}
-
-#body #body-detail{
-  margin: 10px;
-  display: block;
-  background: var(--light);
-  border: 1px solid var(--border);
-}
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -74,46 +54,26 @@ export default {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.text {
-  height: 24px;
-  width: auto;
-  font-size: 16px;
-  /* padding: 0px 3px; */
-  /* margin: 3px; */
+.wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
 }
 
-#main #left {
-  float: left;
-  border: 1px solid var(--border);
+.content-right {
+  display: grid;
+  grid-template-rows: 1fr;
 }
 
-#main #right {
-  margin: 0px;
-  margin-left: calc(100+ 50);
+.content-right .content-right-detail {
+  display: grid;
+  grid-template-rows: 52px 1fr;
 }
 
-#main #right #banner {
-  display: flex;
-  justify-content: space-between;
-  height: 40px;
-  background: var(--light);
-  border-bottom: 1px solid var(--border);
-  margin: 0;
-  align-items: center;
+.content-right .content-right-detail .top {
+   border-bottom: 1px solid var(--border);
 }
 
-#main #right #body {
-  background: var(--light);
-}
-
-#main #right #footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background: red;
-  color: white;
-  text-align: center;
-  width: 50px;
+.content-right .content-right-detail .main {
+   padding: 20px;
 }
 </style>
